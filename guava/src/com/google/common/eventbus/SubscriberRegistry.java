@@ -164,6 +164,7 @@ final class SubscriberRegistry {
    * Returns all subscribers for the given listener grouped by the type of event they subscribe to.
    */
   private Multimap<Class<?>, Subscriber> findAllSubscribers(Object listener) {
+    //Multimap<Class<?>, Subscriber> = Map<Class<?>,List<Subscriber>>
     Multimap<Class<?>, Subscriber> methodsInListener = HashMultimap.create();
     Class<?> clazz = listener.getClass();
     for (Method method : getAnnotatedMethods(clazz)) {
